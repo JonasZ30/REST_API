@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta data-name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Data API</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/randomData.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestAPI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="dataFetcher.js" defer></script> 
 </head>
 <body>
-    <header>
-        <h1>Random Data API</h1>
-        <h2>
-            <button class="data-button" data-name="users">Users</button>
-            <button class="data-button" data-name="addresses">Addresses</button>
-            <button class="data-button" data-name="banks">Banks</button>
-            <button class="data-button" data-name="appliances">Appliances</button>
-            <button class="data-button" data-name="beers">Beers</button>
-            <button class="data-button" data-name="blood_types">Blood Types</button>
-            <button class="data-button" data-name="credit_cards">Credit Cards</button>
-        </h2>
-    </header>
-    <main>
-    </main>
+    <div class="container">
+        <h1 class="mt-5">Random Data Generator</h1>
+        <p>Refresh the page to generate random users!</p>
+        <p>By adding `/random-data` in the URL, you will get the JSON format.</p>
+        
+        <h2>Random User Data</h2>
+        <p>First Name: <span id="user-first-name">N/A</span></p>
+        <p>Last Name: <span id="user-last-name">N/A</span></p>
+        <p>Email: <span id="user-email">N/A</span></p>
+    </div>
 </body>
 </html>

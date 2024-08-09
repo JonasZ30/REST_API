@@ -1,5 +1,11 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { collectDefaultMetrics, Gauge, Histogram, register } from 'prom-client';
+
+// BY CHATGPT --> Convert __dirname to work in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 5000;
@@ -39,8 +45,6 @@ function generateRandomUser() {
   const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domains[Math.floor(Math.random() * domains.length)]}`;
 
   return {
-      id: Math.floor(Math.random() * 1000),
-      uid: Math.random().toString(36).substr(2, 9),
       first_name: firstName,
       last_name: lastName,
       email: email,
@@ -52,6 +56,9 @@ app.get('/random-data', (req, res) => {
   const user = generateRandomUser();
   res.json(user);
 });
+
+// Serve the static HTML file
+app.use(express.static(path.join(__dirname, '../html')));
 
 // Sample API response
 app.get('/api/sample', (req, res) => {
