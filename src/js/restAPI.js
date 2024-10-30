@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { collectDefaultMetrics, Gauge, Histogram, register } from 'prom-client';
+import { collectDefaultMetrics, Histogram, register } from 'prom-client';
 
 // BY CHATGPT --> Convert __dirname to work in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -15,12 +15,6 @@ const restResponseTimeHistogram = new Histogram({
   name: 'rest_response_time_duration_seconds',
   help: 'REST API response time in seconds',
   labelNames: ['method', 'route', 'status_code'],
-});
-
-const databaseResponseTimeHistogram = new Gauge({
-  name: 'db_response_time_duration_seconds',
-  help: 'Database response time in seconds',
-  labelNames: ['operation', 'success'],
 });
 
 // Collect default metrics (like CPU usage, memory usage, etc.)
